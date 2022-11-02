@@ -1,0 +1,57 @@
+﻿@page "/addappointment"
+@inherits AddAppointmentBase
+
+<br />
+
+<PageTitle>Add Appointment</PageTitle>
+
+<EditForm Model="@Appointment" OnValidSubmit="HandleValidSubmit">
+    <h3>@Name</h3>
+    <h3>Add Appointment</h3>
+    <hr />
+    <div class="form-group row">
+        <label for="appointmentType" class="col-sm-2 col-form-label">
+            Appointment Type
+        </label>
+        <div class="col-sm-10">
+            <InputText id="appointmentType" class="form-control" placeholder="Appointment Type"
+                       @bind-Value="Appointment.AppointmentType" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="selectedDate" class="col-sm-2 col-form-label">
+            Selected Date
+        </label>
+        <div class="col-sm-10">
+            <InputDate id="selectedDate" class="form-control" placeholder="Selected Date"
+                       @bind-Value="Appointment.SelectedDate" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="consecutive" class="col-sm-2 col-form-label">
+            Consecutive
+        </label>
+        <div class="col-sm-10">
+            <InputNumber id="consecutive " class="form-control" placeholder="Consecutive "
+                       @bind-Value="Appointment.Consecutive" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="parallel" class="col-sm-2 col-form-label">
+            Parallel
+        </label>
+        <div class="col-sm-10">
+            <InputNumber id="parallel" class="form-control" placeholder="Parallel"
+                       @bind-Value="Appointment.Parallel" />
+        </div>
+    </div>
+    <button class="btn btn-primary" type="submit">Submit</button>
+</EditForm>
+
+@code {
+    [Parameter] public string Name { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+    }
+}

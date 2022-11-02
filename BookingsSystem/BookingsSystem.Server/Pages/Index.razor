@@ -1,0 +1,38 @@
+﻿@page "/"
+@inject IJSRuntime js
+
+<PageTitle>Dashboard</PageTitle>
+
+<br />
+<br />
+
+<div class="row">
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Javascript</h5>
+                <p class="card-text">Call js function</p>
+                <a href="#" class="btn btn-primary" @onclick="CallJsFunction">Javascript go!</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Appointment</h5>
+                <p class="card-text">Lets create a new appointment.</p>
+                <a href="/addappointment" class="btn btn-primary">Add appointment</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*<AddAppointment Name="Hi Michael"></AddAppointment>*@
+
+@code {
+    private async void CallJsFunction()
+    {
+        await js.InvokeVoidAsync("confirm", "Look its js confirm function..");
+    }
+}
+
